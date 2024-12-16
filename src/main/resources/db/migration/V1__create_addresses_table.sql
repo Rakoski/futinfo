@@ -1,0 +1,14 @@
+CREATE TABLE addresses (
+   id SERIAL PRIMARY KEY,
+   cep VARCHAR(255) NOT NULL,
+   street VARCHAR(255) NOT NULL,
+   number VARCHAR(255) NOT NULL,
+   complement VARCHAR(255),
+   neighborhood VARCHAR(255) NOT NULL,
+   city VARCHAR(255) NOT NULL,
+   state VARCHAR(255) NOT NULL,
+   country VARCHAR(255) NOT NULL DEFAULT 'Brasil',
+   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   updated_at TIMESTAMP,
+   deleted_at TIMESTAMP
+);
