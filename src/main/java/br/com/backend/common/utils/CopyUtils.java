@@ -5,15 +5,14 @@ import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
 import java.beans.PropertyDescriptor;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class CopyUtils {
     public static void copyNonNullProperties(Object source, Object destination, String... ignoreProperties) {
         Set<String> ignorePropertiesSet = getNullPropertyNames(source);
-        for (String propertyName : ignoreProperties) {
-            ignorePropertiesSet.add(propertyName);
-        }
+        ignorePropertiesSet.addAll(Arrays.asList(ignoreProperties));
         BeanUtils.copyProperties(source, destination, ignorePropertiesSet.toArray(new String[0]));
     }
 
