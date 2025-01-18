@@ -1,9 +1,9 @@
-package com.backend;
+package br.com.backend;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
-import org.testcontainers.containers.MariaDBContainer;
+import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
 @TestConfiguration(proxyBeanMethods = false)
@@ -11,8 +11,10 @@ class TestcontainersConfiguration {
 
     @Bean
     @ServiceConnection
-    MariaDBContainer<?> mariaDbContainer() {
-        return new MariaDBContainer<>(DockerImageName.parse("mariadb:latest"));
+    PostgreSQLContainer<?> postgresContainer() {
+        return new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"))
+                .withDatabaseName("futinfo")
+                .withUsername("postgres")
+                .withPassword("Mateus0312");
     }
-
 }

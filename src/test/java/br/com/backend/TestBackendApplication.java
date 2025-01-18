@@ -1,7 +1,7 @@
-package com.backend;
+package br.com.backend;
 
-import br.com.backend.BackendApplication;
 import org.springframework.boot.SpringApplication;
+import org.testcontainers.utility.TestcontainersConfiguration;
 
 public class TestBackendApplication {
 
