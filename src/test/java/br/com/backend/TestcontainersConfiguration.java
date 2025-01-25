@@ -15,6 +15,6 @@ class TestcontainersConfiguration {
         return new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"))
                 .withDatabaseName("futinfo")
                 .withUsername("postgres")
-                .withPassword("Mateus0312");
+                .withPassword("");
     }
 }
